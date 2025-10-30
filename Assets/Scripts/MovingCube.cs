@@ -15,6 +15,8 @@ public class MovingCube : MonoBehaviour
     private LuaTable m_scriptScope;
 
     public const string bindingModuleName = "binding.MovingCube";
+    
+    public LuaTable luascript => m_scriptScope;
 
     void Awake() {
         m_scriptScope = LuaUtils.CreateBindingScope(this, bindingModuleName, true);
