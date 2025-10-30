@@ -21,6 +21,7 @@ public static class LuaUtils
         scriptScope.Set("global", luaEnv.Global);
 
         byte[] script = LuaManager.LuaModuleLoader(ref bindingModuleName);
+        Debug.Assert(script != null, $"CreateBindingScope failed, module not found: {bindingModuleName}");
         luaEnv.DoString(script, bindingModuleName, scriptScope);
 
         // 将脚本域存入 package.loaded
